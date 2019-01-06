@@ -7,6 +7,4 @@
 //
 
 import XCTest
-@testable import HackerNews
-
 class HackerNewsTests: XCTestCase {}
