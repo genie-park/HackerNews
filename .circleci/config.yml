@@ -3,7 +3,7 @@ jobs:
   build:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.0.1"
+      xcode: "10.0.0"
     steps:
       - checkout
       - run:
