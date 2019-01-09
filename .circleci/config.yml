@@ -14,7 +14,7 @@ jobs:
           command: fastlane scan
           environment:
             SCAN_DEVICE: iPhone 6
-            SCAN_SCHEME: WebTests
+            SCAN_SCHEME: HackerNews
 
       - store_test_results:
           path: test_output/report.xml
