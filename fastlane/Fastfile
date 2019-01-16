@@ -7,7 +7,16 @@ platform :ios do
 
   lane :beta do
     match(type: "development" )
-    gym(export_method: "development")
-  end
-
+    build_ios_app(
+      scheme: "HackerNews",
+      export_options: {
+        method: "development",
+    	provisioningProfiles: { 
+          "ai.apptest.*": "match Development ai.apptest.*",
+          "ai.apptest.ai.hackernews": "match Development ai.apptest.*"
+        },
+        signingStyle: "manual"
+      }
+    )
+  end 
 end
