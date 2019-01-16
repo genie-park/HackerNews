@@ -17,12 +17,8 @@ jobs:
           name: Build and archive
           command: fastlane ios beta
       - apptest-ai/run-test:
-         binary_path: app/build/outputs/apk/debug/app-debug.apk
+         binary_path: HackerNews.ipa
          access_key: d0b20cd289994be0e423e2c42f4c09fe
          project_id: '793'
       - store_artifacts:
           path: ./HackerNews.ipa
-          destination: application binary
-      - store_artifacts:
-          path: $(TMP_DIR)/apptest_results.json
-          destination: app test results
