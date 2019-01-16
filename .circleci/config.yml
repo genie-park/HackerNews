@@ -10,17 +10,8 @@ jobs:
           name: Install CocoaPods
           command: pod install
       - run:
-          name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 6
-            SCAN_SCHEME: HackerNews
-
-      - store_test_results:
-          path: test_output/report.xml
+          name: Build and archive
+          command: fastlane ios beta
       - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
-      - store_artifacts:
-          path: ~/Library/Logs/scan
-          destination: scan-logs
+          path: ./HackerNews.ipa
+          destination: application binary
