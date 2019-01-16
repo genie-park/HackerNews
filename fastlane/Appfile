@@ -1,2 +1,2 @@
-app_identifier("ai.apptest.*") # The bundle identifier of your app
+app_identifier("ai.apptest.hackernews") # The bundle identifier of your app
 apple_id("jean@apptest.ai") # Your Apple email address
