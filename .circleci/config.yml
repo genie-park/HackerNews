@@ -21,13 +21,13 @@ jobs:
           name: Build and archive
           command: fastlane ios beta
       - save_cache:
-          key: v1-pod-deps-{{ checksum "Podfile.lock "}}
+          key: v1-pod-deps-{{ checksum "Podfile.lock"}}
           paths: 
              - Pods
       - apptest-ai/run-test:
           binary_path: ./HackerNews.ipa
           access_key: d0b20cd289994be0e423e2c42f4c09fe
-          project_id: '793'
+          project_id: '794'
       - store_artifacts:
           path: ./HackerNews.ipa
       - store_artifacts:
