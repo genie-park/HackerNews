@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  apptest-ai: apptest-ai/run-test@volatile
+  apptest-ai: apptestai/ios-app-test@dev:0.0.1
 
 jobs:
   build:
@@ -22,3 +22,5 @@ jobs:
          project_id: '793'
       - store_artifacts:
           path: ./HackerNews.ipa
+      - store_artifacts:
+          path: $APPTEST_AI_TEST_RESULT
