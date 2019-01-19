@@ -1,32 +1,17 @@
 version: 2.1
-
 orbs:
   apptest-ai: apptestai/ios-app-test@dev:0.0.2
-
 jobs:
   build:
-    # Specify the Xcode version to use
     macos:
       xcode: "10.0.0"
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-pod-deps-{{ checksum "Podfile.lock"}}
-            - v1-pod-deps-
-      - run:
-          name: Install CocoaPods
-          command: pod install
       - run:
           name: Build and archive
           command: fastlane ios beta
-      - save_cache:
-          key: v1-pod-deps-{{ checksum "Podfile.lock"}}
-          paths: 
-             - Pods
       - apptest-ai/run-test:
           binary_path: ./HackerNews.ipa
-          access_key: d0b20cd289994be0e423e2c42f4c09fe
           project_id: '794'
       - store_artifacts:
           path: ./HackerNews.ipa
