@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  apptest-ai: apptestai/ios-app-test@dev:0.0.3
+  apptest-ai: apptestai/ios-app-test@dev:0.0.4
 jobs:
   build:
     macos:
