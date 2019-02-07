@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  apptest-ai: apptestai/ios-app-test@dev:0.0.9
+  apptest-ai: apptestai/ios-app-test@dev:0.0.2
 jobs:
   build:
     macos:
@@ -16,4 +16,7 @@ jobs:
       - store_artifacts:
           path: ./HackerNews.ipa
       - store_artifacts:
-          path: ./apptest-ai-test-results.json
+          path: ./apptest-ai-test-results.html
+      - store_test_results:
+          path: .
+      
