@@ -16,7 +16,7 @@ jobs:
       - store_artifacts:
           path: ./HackerNews.ipa
       - store_artifacts:
-          path: ./apptest-ai-test-results.html
+          path: ./apptest-ai_result.html
       - store_test_results:
           path: .
       
