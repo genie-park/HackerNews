@@ -19,6 +19,8 @@ steps:
    pod install
    fastlane beta
   displayName: 'Build'
+  env:
+    MATCH_PASSWRORD: $(MATCH_PASSWORD)
 
 - bash: |
     git clone https://github.com/apptestai/ci_addon    
