@@ -1,0 +1,39 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macOS-10.13'
+
+steps:
+- bash: echo - e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+  displayName: 'Setup build env'
+  env:
+    CI_USER_TOKEN: $(CI_USER_TOKEN)
+    
+- bash: |
+   pod install
+   fastlane beta
+  displayName: 'Build'
+
+- bash: |
+    git clone https://github.com/apptestai/ci_addon    
+    export binary_path=./app/build/outputs/apk/debug/app-debug.apk
+    export project_id='831'
+    bash ./ci_addon/step.sh
+  displayName: 'Tested by TestBot'
+  
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'apptest-ai test result'
+    targetPath: 'test-results/'
+
+- task: PublishTestResults@2
+  inputs:
+   testResultsFormat: JUnit
+   testResultsFiles: '**/*.xml'
+   searchFolder: '$(System.DefaultWorkingDirectory)/test-results/'
