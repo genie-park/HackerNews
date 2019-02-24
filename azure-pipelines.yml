@@ -24,7 +24,7 @@ steps:
 
 - bash: |
     git clone https://github.com/apptestai/ci_addon    
-    export binary_path=./app/build/outputs/apk/debug/app-debug.apk
+    export binary_path=HackerNews.ipa
     export project_id='831'
     bash ./ci_addon/step.sh
   displayName: 'Tested by TestBot'
