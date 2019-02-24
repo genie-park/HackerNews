@@ -1,4 +1,4 @@
-git_url("git@github.com:genie-park/certificate")
+git_url("https://github.com/genie-park/certificate")
 app_identifier("ai.apptest.*")
 username("jean@apptest.ai")
 
