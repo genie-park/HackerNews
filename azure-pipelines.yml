@@ -26,6 +26,8 @@ steps:
     export project_id='831'
     bash ./ci_addon/step.sh
   displayName: 'Tested by TestBot'
+  env:
+    APPTEST_AI_ACCESS_KEY: $(APPTEST_AI_ACCESS_KEY)
   
 - task: PublishPipelineArtifact@0
   inputs:
